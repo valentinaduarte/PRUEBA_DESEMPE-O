@@ -11,20 +11,19 @@ public class Compra {
 
     private int idProducto;
 
-    private Cliente Objcliente;
+    private Cliente ObjCliente;
 
-    private Producto Objproducto;
+    private Producto ObjProducto;
 
     public Compra() {
     }
 
-    public Compra(String fechaCompra, int cantidad, int idCliente, int idProducto, Cliente objcliente, Producto objproducto) {
-        this.fechaCompra = fechaCompra;
+    public Compra( int cantidad, int idCliente, int idProducto, Cliente objCliente, Producto objProducto) {
         this.cantidad = cantidad;
         this.idCliente = idCliente;
         this.idProducto = idProducto;
-        this.Objcliente = objcliente;
-        this.Objproducto = objproducto;
+        this.ObjCliente = objCliente;
+        this.ObjProducto = objProducto;
     }
 
     public int getId() {
@@ -67,20 +66,20 @@ public class Compra {
         this.idProducto = idProducto;
     }
 
-    public Cliente getObjcliente() {
-        return Objcliente;
+    public Cliente getObjCliente() {
+        return ObjCliente;
     }
 
-    public void setObjcliente(Cliente objcliente) {
-        Objcliente = objcliente;
+    public void setObjCliente(Cliente objCliente) {
+        ObjCliente = objCliente;
     }
 
-    public Producto getObjproducto() {
-        return Objproducto;
+    public Producto getObjProducto() {
+        return ObjProducto;
     }
 
-    public void setObjproducto(Producto objproducto) {
-        Objproducto = objproducto;
+    public void setObjProducto(Producto objproducto) {
+        ObjProducto = ObjProducto;
     }
 
     @Override
@@ -91,8 +90,8 @@ public class Compra {
                 ", cantidad=" + cantidad +
                 ", idCliente=" + idCliente +
                 ", idProducto=" + idProducto +
-                ", Objcliente=" + Objcliente +
-                ", Objproducto=" + Objproducto +
+                ", ObjCliente=" + ObjCliente +
+                ", ObjProducto=" + ObjProducto +
                 '}';
     }
 }

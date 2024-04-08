@@ -7,6 +7,8 @@ public class Producto {
 
     private Double precio;
 
+    private int stock;
+
     private int idTienda;
 
     private Tienda ObjTienda;
@@ -14,11 +16,20 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String nombre, Double precio, int idTienda, Tienda objTienda) {
+    public Producto(String nombre, Double precio, int stock,int idTienda, Tienda objTienda) {
         this.nombre = nombre;
         this.precio = precio;
+        this.stock = stock;
         this.idTienda = idTienda;
         this.ObjTienda = objTienda;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public int getId() {
@@ -68,8 +79,9 @@ public class Producto {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
+                ", stock=" + stock +
                 ", idTienda=" + idTienda +
-                ", ObjTienda=" + ObjTienda +
+                ", ObjTienda=" + ObjTienda.getNombre() +
                 '}';
     }
 }
