@@ -59,11 +59,9 @@ CREATE TABLE `compra` (
 -- Volcado de datos para la tabla `compra`
 --
 
-INSERT INTO `compra` (`id`, `cantidad`, `id_cliente`, `id_producto`) VALUES
-(7, 1, 1, 1),
-(8, 40, 1, 1),
-(21, 100, 1, 1),
-(22, 15, 1, 4);
+INSERT INTO `compra` (`id` , `fecha_compra` , `cantidad`, `id_cliente`, `id_producto`) VALUES
+(7,'2024-04-08 17:50:54' ,1, 1, 1),
+(22,'2024-04-08 17:50:59', 15, 1, 4);
 
 -- --------------------------------------------------------
 
