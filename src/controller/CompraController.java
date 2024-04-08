@@ -4,6 +4,7 @@ import entity.Cliente;
 import entity.Compra;
 import entity.Producto;
 import model.CompraModel;
+import model.ProductoModel;
 import utils.Utils;
 
 import javax.swing.*;
@@ -12,8 +13,6 @@ import java.util.List;
 public class CompraController {
     public static void insert() {
 
-        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de la compra: "));
-        
         Object[] optionsClientes = Utils.listToArray(ClienteController.instanceModel().findAll());
         Object[] optionsProductos = Utils.listToArray(ProductoController.instanceModel().findAll());
 
@@ -27,6 +26,8 @@ public class CompraController {
                 optionsProductos[0]
         );
 
+        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de la compra: "));
+
         Cliente clienteSelected = (Cliente) JOptionPane.showInputDialog(
                 null,
                 "Selecciona el cliente que realiza la compra: ",
@@ -37,10 +38,19 @@ public class CompraController {
                 optionsClientes[0]
         );
 
-        instanceModel().insert(new Compra(cantidad,ProductoSelected.getId(), clienteSelected.getId(), clienteSelected, ProductoSelected));
-
+        if( cantidad > ProductoSelected.getStock() && ProductoSelected.getStock() > 0 ){
+            JOptionPane.showMessageDialog(null, "No se puede agregar el producto \n PRODUCTO SIN STOCK");
+        } else {
+            instanceModel().insert(new Compra(cantidad, clienteSelected.getId(),ProductoSelected.getId(), clienteSelected, ProductoSelected));
+            ProductoSelected.setStock(ProductoSelected.getStock() - cantidad);
+            instanceModel1().updateStock(ProductoSelected);
+            JOptionPane.showMessageDialog(null,ProductoSelected.getStock());
+        }
     }
 
+    public static ProductoModel instanceModel1 () {
+        return new ProductoModel();
+    }
 
     public static CompraModel instanceModel () {
         return new CompraModel();
@@ -125,5 +135,4 @@ public class CompraController {
 
         instanceModel().update(CompraSelected);
     }
-
 }

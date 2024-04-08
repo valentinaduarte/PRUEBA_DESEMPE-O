@@ -11,7 +11,7 @@ public class ClienteController {
     public static void insert(){
         String nombre = JOptionPane.showInputDialog( "Ingrese el nombre del cliente: ");
         String apellido = JOptionPane.showInputDialog( "Ingrese el apellido del cliente: ");
-        String documento = JOptionPane.showInputDialog( "Ingrese el documento del cliente: ");
+        String documento = JOptionPane.showInputDialog( "Ingrese el email del cliente: ");
 
         instanceModel().insert(new Cliente(nombre, apellido, documento));
 

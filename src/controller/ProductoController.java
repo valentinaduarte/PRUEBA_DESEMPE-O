@@ -47,7 +47,7 @@ public class ProductoController {
         int stock = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el stock del producto: "));
 
 
-        Object[] optionsAirplanes  = Utils.listToArray(TiendaController.instanceModel().findAll());
+        Object[] optionsTiendas = Utils.listToArray(TiendaController.instanceModel().findAll());
 
         Tienda objTienda = (Tienda) JOptionPane.showInputDialog(
                 null,
@@ -55,8 +55,8 @@ public class ProductoController {
                 "",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
-                optionsAirplanes,
-                optionsAirplanes[0]
+                optionsTiendas,
+                optionsTiendas[0]
         );
         instanceModel().insert(new Producto(nombre,precio,stock,objTienda.getId(),objTienda));
     }
@@ -93,6 +93,8 @@ public class ProductoController {
         objProducto.setIdTienda(objProducto.getObjTienda().getId());
         instanceModel().update(objProducto);
     }
+
+
 
 
     public static  ProductoModel instanceModel(){

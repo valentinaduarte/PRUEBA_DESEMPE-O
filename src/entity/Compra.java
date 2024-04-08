@@ -78,8 +78,8 @@ public class Compra {
         return ObjProducto;
     }
 
-    public void setObjProducto(Producto objproducto) {
-        ObjProducto = ObjProducto;
+    public void setObjProducto(Producto objProducto) {
+        ObjProducto = objProducto;
     }
 
     @Override

@@ -86,6 +86,30 @@ public class ProductoModel implements CRUD {
         return listProductos;
     }
 
+    public void updateStock(Object obj) {
+        Connection objConnection = ConfigDB.openConnection();
+        Producto objP = (Producto) obj;
+        boolean isUpdated = false;
+
+        try {
+            String sql = "UPDATE producto SET stock = ? WHERE id = ?;";
+            PreparedStatement objPrepare = objConnection.prepareStatement(sql);
+
+            objPrepare.setInt(1,objP.getStock());
+            objPrepare.setInt(2,objP.getId());
+
+            int totalRowAffected = objPrepare.executeUpdate();
+            if (totalRowAffected > 0){
+                isUpdated = true;
+                JOptionPane.showMessageDialog(null,"Producto actualizado correctamente.");
+            }
+        }catch (SQLException e){
+            System.out.println("Error : " + e.getMessage());
+        }
+
+        ConfigDB.closeConnection();
+    }
+
     @Override
     public boolean update(Object obj) {
         Connection objConnection = ConfigDB.openConnection();
