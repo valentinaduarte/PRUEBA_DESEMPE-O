@@ -44,7 +44,6 @@ public class CompraController {
             instanceModel().insert(new Compra(cantidad, clienteSelected.getId(),ProductoSelected.getId(), clienteSelected, ProductoSelected));
             ProductoSelected.setStock(ProductoSelected.getStock() - cantidad);
             instanceModel1().updateStock(ProductoSelected);
-            JOptionPane.showMessageDialog(null,ProductoSelected.getStock());
         }
     }
 
