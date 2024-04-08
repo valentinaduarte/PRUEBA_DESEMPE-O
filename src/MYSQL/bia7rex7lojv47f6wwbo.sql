@@ -59,17 +59,11 @@ CREATE TABLE `compra` (
 -- Volcado de datos para la tabla `compra`
 --
 
-INSERT INTO `compra` (`id`, `fecha_compra`, `cantidad`, `id_cliente`, `id_producto`) VALUES
-(7, NULL, 1, 1, 1),
-(8, NULL, 40, 1, 1),
-(9, NULL, 1, 1, 3),
-(10, NULL, 40, 1, 4),
-(11, NULL, 20, 1, 3),
-(15, NULL, 50, 1, 4),
-(16, NULL, 100, 1, 1),
-(17, NULL, 4, 1, 1),
-(21, NULL, 100, 1, 1),
-(22, NULL, 15, 1, 4);
+INSERT INTO `compra` (`id`, `cantidad`, `id_cliente`, `id_producto`) VALUES
+(7, 1, 1, 1),
+(8, 40, 1, 1),
+(21, 100, 1, 1),
+(22, 15, 1, 4);
 
 -- --------------------------------------------------------
 
